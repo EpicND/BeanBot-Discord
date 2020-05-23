@@ -2,6 +2,9 @@ const config = require('./config.json');
 const Discord = require('discord.js');
 const client = new Discord.Client();
 
+
+const PREFIX = '!';
+
 client.on('ready', () => {
   console.log(`Nice name nerd, ${client.user.tag}!`);
 });
@@ -19,6 +22,10 @@ client.on('message', msg => {
 console.log(time2-time1+" miliseconds response time")
   })
   }
+
+  
+
+
 
 });
 
