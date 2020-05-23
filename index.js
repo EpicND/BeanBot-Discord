@@ -6,6 +6,7 @@ client.on('ready', () => {
   console.log(`Nice name nerd, ${client.user.tag}!`);
 });
 
+
 client.on('message', msg => {
   if (msg.content === 'ping') {
     msg.reply('ok nerd');
