@@ -12,7 +12,7 @@ client.on('ready', () => {
 
 client.on('message', msg => {
 //   if (msg.content === 'ping') {
- 
+
 //   }
 
 //   if (msg.content === 'b!fact') {
@@ -33,7 +33,33 @@ switch(args[0]){
       })
       break;
     case 'fact':
-        msg.reply('Shut up nerd no bean facts for your broke ass');
+        var x = Math.floor(Math.random() * 11);
+        switch(x){
+          case 0: msg.reply('Shut up nerd no bean facts for your broke ass');
+            break;
+          case 1: msg.reply('Beans are the large seeds of certain types of plants, and are technically a fruit.');
+            break;
+          case 2: msg.reply('January 6th is National Bean Day. It also falls on the day in which geneticist, Gregor Mendel, who famously used bean and pea plants to test his theories on inheritance died in 1884.');
+            break;
+          case 3: msg.reply('Beans have been cultivated by humans for 6,000 years.');
+            break;
+          case 4: msg.reply('In Nicaragua, newlyweds are given a bowl of beans for good luck.');
+            break;
+          case 5: msg.reply('In ancient Greece, minor public officials were elected by putting one white bean with a load of black beans inside a “bean machine.” Whoever picked the white bean got the job.');
+            break;
+          case 6: msg.reply('An archaeologist in the 1980’s working in New Mexico came upon a clay pot sealed with pine tar containing bean seeds that were 1,500 years old…and they grew!');
+            break;
+          case 7: msg.reply('Beans can be made into burgers, cakes, drinks, pies, fudge, muffins, jewelry, furniture (bean-bag chairs!), toys, and musical instruments.');
+            break;
+          case 8: msg.reply('In the 6th century BC, philosopher and mathematician Pythagoras (certified dumbass) had a deep philosophical dislike of beans. Some historians reported his aversion was due to the belief that legumes contained the souls of the dead');
+            break;
+          case 9: msg.reply('Approximately 71,089 people in the world have the last name Bean.');
+            break;
+          case 10: msg.reply('Vermont ranks highest in searching for bean recipes online. Montana and Wyoming are second and third.');
+            break;
+          case 11: msg.reply('The longest recorded time for sitting in a bath of cold baked beans is 100 hours by Barry “Captain Beany” Kirk');
+            break;
+        }
         break;
 
 }
