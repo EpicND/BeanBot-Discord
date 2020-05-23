@@ -8,7 +8,7 @@ client.on('ready', () => {
 
 
 client.on('message', msg => {
-  if (msg.content === 'ping') {
+  if (msg.content === 'b!ping') {
     msg.reply('ok nerd');
 
     var time1 = msg.createdTimestamp
