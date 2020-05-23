@@ -1,2 +1,2 @@
 # BeanBot-Discord
-A Discord Bot For Hypixel Stats
+A Discord Bot For Random pictures of beans
