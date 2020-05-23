@@ -22,4 +22,11 @@ console.log(time2-time1+" miliseconds response time")
 
 });
 
+client.on('message', msg => {
+  if (msg.content === 'b!fact') {
+    msg.reply('Shut up nerd no bean facts for your broke ass');
+  }
+
+});
+
 client.login(config.token);
