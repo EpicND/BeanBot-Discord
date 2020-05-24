@@ -12,14 +12,9 @@ module.exports = {
         .addField("**Basic Commands**", '**b!help** - `gives all bot commands` \n **b!ping** - `stats for nerds`')
         .addField("**:b:ean Commands**", '**b!fact** - `random facts about :b:eans` \n **b!img** - `sends a random :b:ean image` \n **b!beansong** - `listen to the beanos theme song`')
         .addField("**Misc. Commands**", '**b!exp** - `check how many beanpts your server has` \n **b!invite** - `get the link to invite the bot to your server`')
-        .addField("**Check out our server**", 'https://discord.gg/ptksuF')
+        .addField("**Check out our server**", ' ')
+
         msg.react('👍')
-        // msg.send("https://discord.gg/ptksuF");
-        // msg.channel.send('maybe next year')
-        // .then(lol => {
-        // lol.edit("check out our discord: https://discord.gg/ptksuF . \n b!help: get a list of commands \n b!ping: a command for nerds \n b!fact: get a (not so) fun fact about :b:eans \n b!img: get a photo of beans \n b!exp: check ur server's bean level \n b!invite: invite me to a server :flushed:")
-        // // { disableEveryone: true }
-        // })
         .catch(console.error);
         msg.channel.send({embed: helpEmbed})
         msg.channel.send("https://discord.gg/ptksuF")
