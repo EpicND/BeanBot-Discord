@@ -22,6 +22,7 @@ module.exports = {
         // })
         .catch(console.error);
         msg.channel.send({embed: helpEmbed})
+        msg.channel.send("https://discord.gg/ptksuF")
         // msg.channel.send({embed: musichelp})
 
 	},
