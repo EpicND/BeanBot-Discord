@@ -39,7 +39,7 @@ switch(args[0]){
             break;
           case 1: msg.reply('Beans are the large seeds of certain types of plants, and are technically a fruit.');
             break;
-          case 2: msg.reply('January 6th is National Bean Day. It also falls on the day in which geneticist, Gregor Mendel, who famously used bean and pea plants to test his theories on inheritance died in 1884.');
+          case 2: msg.reply('January 6th is National Bean Day. It also falls on the day in which geneticist, Gregor Mendel (:goat:), who famously used bean and pea plants to test his theories on inheritance died in 1884.');
             break;
           case 3: msg.reply('Beans have been cultivated by humans for 6,000 years.');
             break;
