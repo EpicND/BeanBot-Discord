@@ -1,5 +1,5 @@
 var imgArr = [
-  'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.medicalnewstoday.com%2Farticles%2F320192&psig=AOvVaw3l2RY4CvFUl7d2ToWzqOND&ust=1590432909641000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCMiR4raWzekCFQAAAAAdAAAAABAH',
+  'https://post.medicalnewstoday.com/wp-content/uploads/sites/3/2020/02/320192_2200-800x1200.jpg',
   'https://www.gracefullittlehoneybee.com/wp-content/uploads/2014/09/Slow-Cooker-Pinto-Beans-3.jpg',
   'https://www.google.com/url?sa=i&url=https%3A%2F%2Fnusciencesolutions.com%2Frecipe%2Fno-gas-home-cooked-beans%2F&psig=AOvVaw3l2RY4CvFUl7d2ToWzqOND&ust=1590432909641000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCMiR4raWzekCFQAAAAAdAAAAABAQ',
   'https://i0.wp.com/cdn-prod.medicalnewstoday.com/content/images/articles/320/320192/lots-of-beans-in-a-large-spoon.jpg?w=1155&h=1297',
