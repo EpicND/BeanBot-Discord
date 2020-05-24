@@ -16,7 +16,6 @@ module.exports = {
         msg.react('👍')
         .catch(console.error);
         msg.channel.send({embed: helpEmbed})
-        msg.channel.send("**Check out our server** \n https://discord.gg/ptksuF")
         // msg.channel.send({embed: musichelp})
 
 	},

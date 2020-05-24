@@ -11,5 +11,6 @@ module.exports = {
       .addField("**Beta**", 'BeatBot is constantly being updated!. Currently, we are working on making specific categories of beans and expanding our photo library of beans and bean memes. join our server and leave recommendations for what we should add next!')
 
       msg.channel.send({embed: infoEmbed})
+      msg.channel.send("**Check out our server** \n https://discord.gg/ptksuF")
     }
   }
