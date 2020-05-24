@@ -39,8 +39,10 @@ client.on('message', msg => {
 //   }
 
 let args = msg.content.substring(PREFIX.length).split(' ');
-if(msg.content.startsWith(PREFIX)){
-switch(args[0]){
+if(msg.content.startsWith(PREFIX.toLowerCase)){
+    console.log('true')
+    // if(args[0] == ' ') args[0] = args[1];
+switch(args[0].toLowerCase){
     case 'ping':
         msg.reply('ok nerd');
 
