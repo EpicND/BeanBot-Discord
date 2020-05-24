@@ -68,6 +68,8 @@ switch(args[0]){
           break;
       }
       break;
+    default:
+
 
 }
 
