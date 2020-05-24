@@ -60,5 +60,8 @@ function defaultCase(msg){
 
 }
 
+var config = config.token;
 
-client.login(config.token);
+if(!config.token) var config = process.env.BOT_TOKEN;
+
+client.login(config);
