@@ -33,7 +33,7 @@ client.on('ready', () => {
 //             type: "STREAMING" //PLAYING: WATCHING: LISTENING: STREAMING:
 //         }
 //     });
-	client.user.setActivity("Using b!help");
+	client.user.setActivity("Use b!help", {type: "CUSTOM_STATUS"});
 });
 
 
