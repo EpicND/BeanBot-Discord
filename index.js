@@ -31,10 +31,10 @@ switch(args[0]){
           { disableEveryone: true }
           console.log(time2-time1+" miliseconds response time")
       })
-      break;
-    case 'fact':
+    break;
+    case 'fact' || 'facts':
         msg.reply('Shut up nerd no bean facts for your broke ass');
-        break;
+    break;
 
 }
 
