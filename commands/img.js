@@ -18,7 +18,7 @@ module.exports = {
       var s = Math.floor(Math.random()*10);
       if(s > 0){
       var x = Math.floor(Math.random() * 12);
-      msg.channel.send(imgArr[x])
+      msg.channel.send("Here you go: " + imgArr[x])
       } else {
           msg.channel.send("Why are you addicted to :b:ean photos")
       }
