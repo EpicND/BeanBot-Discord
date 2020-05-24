@@ -8,7 +8,7 @@ var imgArr = [
   'https://www.momontimeout.com/wp-content/uploads/2020/01/crockpot-baked-beans-in-metal-serving-dish-title-.jpg',
   'https://www.belovedshirts.com/wp-content/uploads/2019/04/sweatsshirt-front-1.jpg',
   'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSP14hWBsCFiTCdjUXZDzSJ41JAowyVhCYiMpkpQgjfVhLwdcMF&usqp=CAU',
-  'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTGqYig3gWTlXINog8BDM2f8jUin0qK_x2n9Nku4wy5jESKVBq4&usqp=CAU',
+  'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTGqYig3gWTlXINog8BDM2f8jUin0qK_x2n9Nku4wy5jESKVBq4&usqp=CAU'
 ];
 
 module.exports = {
