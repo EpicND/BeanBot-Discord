@@ -21,6 +21,20 @@ client.on('message', msg => {
 
 let args = msg.content.substring(PREFIX.length).split(' ');
 switch(args[0]){
+    case 'ping':
+        msg.reply('ok nerd');
+
+        var time1 = msg.createdTimestamp
+        msg.channel.send("Pinging...").then(lol => {
+          var time2 = lol.createdTimestamp
+          lol.edit(":ping_pong: **Pong!** **Response Time:** `" +(time2-time1)+" `Miliseconds")
+          { disableEveryone: true }
+          console.log(time2-time1+" miliseconds response time")
+      })
+    break;
+    case 'fact' || 'facts':
+        msg.reply('Shut up nerd no bean facts for your broke ass');
+    break;
   case 'help':
       msg.reply('maybe next year');
       msg.channel.send("").then(lol => {
@@ -44,7 +58,7 @@ switch(args[0]){
       switch(x){
         case 0: msg.reply('Shut up nerd no :b:ean facts for your broke ass');
           break;
-        case 1: msg.reply(':B:eans are the large seeds of certain types of plants, and are technically a fruit.');
+        case 1: msg.reply('Beans are the large seeds of certain types of plants, and are technically a fruit.');
           break;
         case 2: msg.reply('January 6th is National :b:ean Day. It also falls on the day in which geneticist, Gregor Mendel (:goat:), who famously used :b:ean and pea plants to test his theories on inheritance died in 1884.');
           break;
