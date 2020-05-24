@@ -26,6 +26,13 @@ for (const file of commandFiles) {
 
 client.on('ready', () => {
   console.log(`Nice name nerd, ${client.user.tag}! Use b!help to get started`);
+	client.user.setPresence({
+        status: "online",  //You can show online, idle....
+        game: {
+            name: "Using b!help",  //The message shown
+            type: "STREAMING" //PLAYING: WATCHING: LISTENING: STREAMING:
+        }
+    });
 });
 
 
