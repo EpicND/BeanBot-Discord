@@ -18,6 +18,12 @@ const factArray = [':B:eans are the large seeds of certain types of plants, and 
 'The longest recorded time for sitting in a bath of cold baked :b:eans is 100 hours by Barry “Captain :b:eany” Kirk',
  ];
 
+ const insultArray = [
+    "The only thing you have in common with a bean is your IQ. spell it properly nerd",
+    "How do you not know how to type a command nerd, spell it correctly"
+
+ ];
+
 client.on('ready', () => {
   console.log(`Nice name nerd, ${client.user.tag}!`);
 });
@@ -33,6 +39,7 @@ client.on('message', msg => {
 //   }
 
 let args = msg.content.substring(PREFIX.length).split(' ');
+if(msg.content.startsWith(PREFIX)){
 switch(args[0]){
     case 'ping':
         msg.reply('ok nerd');
@@ -77,13 +84,14 @@ switch(args[0]){
 
       break;
     default:
-      msg.reply("The only thing you have in common with a bean is your iq. spell it properly nerd");
+      var x = Math.floor(Math.random()*2)
+      msg.reply(insultArray[x]);
       break;
 
 }
 
 
-
+}
 });
 
 
