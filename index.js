@@ -5,8 +5,8 @@ const client = new Discord.Client();
 
 const PREFIX = 'b!';
 
-const factArray = [':B:eans are the large seeds of certain types of plants, and are technically a fruit.', 
-'January 6th is National :b:ean Day. It also falls on the day in which geneticist, Gregor Mendel (:goat:), who famously used :b:ean and pea plants to test his theories on inheritance died in 1884.', 
+const factArray = [':B:eans are the large seeds of certain types of plants, and are technically a fruit.',
+'January 6th is National :b:ean Day. It also falls on the day in which geneticist, Gregor Mendel (:goat:), who famously used :b:ean and pea plants to test his theories on inheritance died in 1884.',
 ':b:eans have been cultivated by humans for 6,000 years.',
 'In Nicaragua, newlyweds are given a bowl of :b:eans for good luck.',
 'In ancient Greece, minor public officials were elected by putting one white :b:ean with a load of black :b:eans inside a “:b:ean machine.” Whoever picked the white :b:ean got the job.',
@@ -58,7 +58,7 @@ switch(args[0]){
   case 'help':
       msg.channel.send('maybe next year')
         .then(lol => {
-        lol.edit("check out our discord: www.discord.com. \n b!help: get a list of commands \n b!ping: a command for nerds \n b!fact: get a (not so) fun fact about :b:eans \n b!img: get a photo of beans \n b!exp: check ur server's bean level")
+        lol.edit("check out our discord: www.discord.com. \n b!help: get a list of commands \n b!ping: a command for nerds \n b!fact: get a (not so) fun fact about :b:eans \n b!img: get a photo of beans \n b!exp: check ur server's bean level \n b!invite: invite me to a server :flushed:")
         { disableEveryone: true }
     })
     break;
