@@ -9,7 +9,7 @@ module.exports = {
       .addField("**Bot Info**", ':b:ean bot is a funny meme bot made to fulfill your widest bean needs. Use b!help to get started. I can send bean images, bean facts, bean memes, and many other things. I am **1** day old. Many more features are coming for all of you bean addicts!'  )
       .addField("**Developer Info**", 'This bot is made by **ccans#5709** and **DhairyaG23#7326**. We are always looking to add more features, facts, and photos. Join my server to reccomend things!')
       .addField("**Beta**", 'BeatBot is constantly being updated!. Currently, we are working on making specific categories of beans and expanding our photo library of beans and bean memes. join our server and leave recommendations for what we should add next!')
-
+      .catch(console.error);
       msg.channel.send({embed: infoEmbed})
       msg.channel.send("**Check out our server** \n https://discord.gg/ptksuF")
     }
