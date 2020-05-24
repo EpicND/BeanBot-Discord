@@ -12,12 +12,11 @@ module.exports = {
         .addField("**Basic Commands**", '**b!help** - `gives all bot commands` \n **b!ping** - `stats for nerds`')
         .addField("**:b:ean Commands**", '**b!fact** - `random facts about :b:eans` \n **b!img** - `sends a random :b:ean image` \n **b!beansong** - `listen to the beanos theme song`')
         .addField("**Misc. Commands**", '**b!exp** - `check how many beanpts your server has` \n **b!invite** - `get the link to invite the bot to your server`')
-        .addField("**Check out our server**", ' ')
 
         msg.react('👍')
         .catch(console.error);
         msg.channel.send({embed: helpEmbed})
-        msg.channel.send("https://discord.gg/ptksuF")
+        msg.channel.send("**Check out our server** \n https://discord.gg/ptksuF")
         // msg.channel.send({embed: musichelp})
 
 	},
