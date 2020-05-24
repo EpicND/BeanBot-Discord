@@ -77,7 +77,8 @@ switch(args[0]){
 
       break;
     default:
-
+      msg.reply("The only thing you have in common with a bean is your iq. spell it properly nerd");
+      break;
 
 }
 
