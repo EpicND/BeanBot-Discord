@@ -26,14 +26,14 @@ for (const file of commandFiles) {
 
 client.on('ready', () => {
   console.log(`Nice name nerd, ${client.user.tag}! Use b!help to get started`);
-// 	client.user.setPresence({
-//         status: "online",  //You can show online, idle....
-//         game: {
-//             name: "Using b!help",  //The message shown
-//             type: "STREAMING" //PLAYING: WATCHING: LISTENING: STREAMING:
-//         }
-//     });
-	client.user.setActivity("with :b:eans | b!help", {type: "PLAYING"});
+	client.user.setPresence({
+        status: "online",  //You can show online, idle....
+        game: {
+            name: "with :b:eans | b!help",  //The message shown
+            type: "PLAYING" //PLAYING: WATCHING: LISTENING: STREAMING:
+        }
+    });
+// 	client.user.setActivity("with :b:eans | b!help", {type: "PLAYING"});
 });
 
 
