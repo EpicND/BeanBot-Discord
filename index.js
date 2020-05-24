@@ -29,7 +29,7 @@ client.on('ready', () => {
 	client.user.setPresence({
         status: "online",  //You can show online, idle....
         game: {
-            name: "with eans | b!help",  //The message shown
+            name: "with beans | b!help",  //The message shown
             type: "PLAYING" //PLAYING: WATCHING: LISTENING: STREAMING:
         }
     });
