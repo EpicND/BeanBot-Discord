@@ -25,7 +25,7 @@ for (const file of commandFiles) {
  ];
 
 client.on('ready', () => {
-  console.log(`Nice name nerd, ${client.user.tag}!`);
+  console.log(`Nice name nerd, ${client.user.tag}! Use b!help to get started`);
 });
 
 
@@ -37,12 +37,12 @@ client.on('message', msg => {
     const args = msg.content.slice(prefix.length).split(/ +/);
     for(x=0; args[x] == '' || args[x] == ' ';){
         args.shift();
-        // console.log('epic' + args[x])   
+        // console.log('epic' + args[x])
     }
 
 	const command = args.shift().toLowerCase();
   var x = Math.floor(Math.random()*3);
-  
+
   if (!client.commands.has(command)) return msg.reply(insultArray[x]);
 
 	try {
