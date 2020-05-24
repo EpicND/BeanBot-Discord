@@ -33,7 +33,7 @@ client.on('ready', () => {
             type: "PLAYING" //PLAYING: WATCHING: LISTENING: STREAMING:
         }
     });
-// 	client.user.setActivity("with :b:eans | b!help", {type: "PLAYING"});
+	client.user.setActivity("with beans | b!help", {type: "PLAYING"});
 });
 
 
