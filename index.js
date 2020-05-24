@@ -62,6 +62,6 @@ function defaultCase(msg){
 
 var configToken;
 
-if(!config.token){configToken = process.env.BOT_TOKEN.toString() }else {configToken = config.token};
-console.log(configToken);
+if(process.env.BOT_TOKEN){configToken = process.env.BOT_TOKEN.toString() }else {configToken = config.token};
+console.log(configToken)
 client.login(configToken);
