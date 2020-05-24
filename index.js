@@ -26,6 +26,14 @@ for (const file of commandFiles) {
 
 client.on('ready', () => {
   console.log(`Nice name nerd, ${client.user.tag}! Use b!help to get started`);
+	client.user.setPresence({
+        status: "online",  //You can show online, idle....
+        game: {
+            name: "with beans | b!help",  //The message shown
+            type: "PLAYING" //PLAYING: WATCHING: LISTENING: STREAMING:
+        }
+    });
+	client.user.setActivity("with beans | b!help", {type: "PLAYING"});
 });
 
 
