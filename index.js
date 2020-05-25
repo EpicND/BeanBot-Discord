@@ -34,12 +34,13 @@ client.on('ready', () => {
         }
     });
 	client.user.setActivity(`b!help | ${client.guilds.size} servers, ${client.users.size} members`, {type: "PLAYING"});
-    console.log(client.guilds.size)
+    
 
 });
 
 
 client.on('message', msg => {
+  console.log(client.guilds.size)
 
     if (!msg.content.startsWith(prefix) || msg.author.bot) return;
 
