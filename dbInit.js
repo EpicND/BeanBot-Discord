@@ -7,7 +7,7 @@ const sequelize = new Sequelize('database', 'username', 'password', {
 	storage: 'database.sqlite',
 });
 
-const CurrencyShop = sequelize.import('models/CurrencyShop');
+const CurrencyShop = sequelize.import('models/currencyshop');
 sequelize.import('models/Users');
 sequelize.import('models/UserItems');
 

@@ -73,13 +73,24 @@ client.once('ready', async () => {
 });
 
 client.on('message', async message => {
-	if (message.author.bot) return;
+
 	currency.add(message.author.id, 1);
+
+	if (!message.content.startsWith(PREFIX) || message.author.bot) return;
+
+
+	const args = message.content.slice(PREFIX.length).split(/ +/);
+	for(x=0; args[x] == '' || args[x] == ' ';){
+			args.shift();
+			// console.log('epic' + args[x])
+	}
 
 	if (!message.content.startsWith(PREFIX)) return;
 	const input = message.content.slice(PREFIX.length).trim();
 	if (!input.length) return;
-	const [, command, commandArgs] = input.match(/(\w+)\s*([\s\S]*)/);
+	const [, commandq, commandArgs] = input.match(/(\w+)\s*([\s\S]*)/);
+
+const command = args.shift().toLowerCase();
 
 	if (command === 'balance') {
 		const target = message.mentions.users.first() || message.author;
