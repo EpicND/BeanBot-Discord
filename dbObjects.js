@@ -1,4 +1,4 @@
-const Sequelize = require('sequelize');
+const Sequelize = __non_webpack_require__('sequelize');
 
 const sequelize = new Sequelize('database', 'username', 'password', {
 	host: 'localhost',
