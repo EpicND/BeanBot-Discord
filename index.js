@@ -33,7 +33,7 @@ client.on('ready', () => {
             type: "PLAYING" //PLAYING: WATCHING: LISTENING: STREAMING:
         }
     });
-	client.user.setActivity("with beans | b!help", {type: "PLAYING"});
+	client.user.setActivity(`b!help | ${client.guilds.size} servers, ${client.users.size} servers`, {type: "PLAYING"});
 });
 
 
