@@ -200,4 +200,4 @@ const command = args.shift().toLowerCase();
 var configToken;
 
 if(process.env.BOT_TOKEN){configToken = process.env.BOT_TOKEN.toString() }else {configToken = config.token};
-client.login(configToken);
+client.login(configtoken);
