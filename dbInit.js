@@ -8,8 +8,8 @@ const sequelize = new Sequelize('database', 'username', 'password', {
 });
 
 const CurrencyShop = sequelize.import('models/currencyshop');
-sequelize.import('models/Users');
-sequelize.import('models/UserItems');
+sequelize.import('models/users');
+sequelize.import('models/useritems');
 
 const force = process.argv.includes('--force') || process.argv.includes('-f');
 
