@@ -61,11 +61,14 @@ client.on('ready', () => {
             type: "PLAYING" //PLAYING: WATCHING: LISTENING: STREAMING:
         }
     });
-	client.user.setActivity(`b!help | ${client.guilds.size} servers, ${client.users.size} servers`, {type: "PLAYING"});
+	client.user.setActivity(`b!help | ${client.guilds.size} servers, ${client.users.size} members`, {type: "PLAYING"});
+    
+
 });
 
 
 client.on('message', msg => {
+  console.log(client.guilds.size)
 
     if (!msg.content.startsWith(prefix) || msg.author.bot) return;
 
