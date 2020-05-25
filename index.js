@@ -6,12 +6,13 @@ const client = new Discord.Client();
 const { Users, CurrencyShop } = require('./dbObjects');
 const { Op } = require('sequelize');
 const currency = new Discord.Collection();
+var path = require("path");
 
 client.commands = new Discord.Collection();
 
 const prefix = 'b!';
 
-const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
+const commandFiles = fs.readdirSync(path.resolve(__dirname, "\commands")).filter(file => file.endsWith('.js'));
 
 
 for (const file of commandFiles) {
@@ -52,7 +53,7 @@ Reflect.defineProperty(currency, 'getBalance', {
 client.on('ready', async () => {
 	const storedBalances = await Users.findAll();
 	storedBalances.forEach(b => currency.set(b.user_id, b));
-	
+
   console.log(`Nice name nerd, ${client.user.tag}! Use b!help to get started`);
 	client.user.setPresence({
         status: "online",  //You can show online, idle....
@@ -62,7 +63,7 @@ client.on('ready', async () => {
         }
     });
 	client.user.setActivity(`b!help | ${client.guilds.size} servers, ${client.users.size} members`, {type: "PLAYING"});
-    
+
 
 });
 
