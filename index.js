@@ -34,6 +34,8 @@ client.on('ready', () => {
         }
     });
 	client.user.setActivity(`b!help | ${client.guilds.size} servers, ${client.users.size} members`, {type: "PLAYING"});
+    console.log(client.guilds.size)
+
 });
 
 
