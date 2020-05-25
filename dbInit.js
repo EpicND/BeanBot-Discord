@@ -28,6 +28,7 @@ function url2obj(url) {
 
 const sequelize = new Sequelize('database', 'username', 'password', {
 	host: url2obj(process.env.DATABASE_URL).host,
+	port: url2obj(process.env.DATABASE_URL).port,
 	dialect: 'postgres'
 	// dialect: 'sqlite',
 	// logging: false,
