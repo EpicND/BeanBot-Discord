@@ -2,6 +2,11 @@ const fs = require('fs');
 const config = require('./config.json');
 const Discord = require('discord.js');
 const client = new Discord.Client();
+
+const { Users, CurrencyShop } = require('./dbObjects');
+const { Op } = require('sequelize');
+const currency = new Discord.Collection();
+
 client.commands = new Discord.Collection();
 
 const prefix = 'b!';
@@ -24,7 +29,30 @@ for (const file of commandFiles) {
   'Choose an actual command bimbo'
  ];
 
+ Reflect.defineProperty(currency, 'add', {
+	value: async function add(id, amount) {
+		const user = currency.get(id);
+		if (user) {
+			user.balance += Number(amount);
+			return user.save();
+		}
+		const newUser = await Users.create({ user_id: id, balance: amount });
+		currency.set(id, newUser);
+		return newUser;
+	},
+});
+
+Reflect.defineProperty(currency, 'getBalance', {
+	value: function getBalance(id) {
+		const user = currency.get(id);
+		return user ? user.balance : 0;
+	},
+});
+
 client.on('ready', () => {
+	const storedBalances = await Users.findAll();
+	storedBalances.forEach(b => currency.set(b.user_id, b));
+	
   console.log(`Nice name nerd, ${client.user.tag}! Use b!help to get started`);
 	client.user.setPresence({
         status: "online",  //You can show online, idle....
@@ -50,6 +78,9 @@ client.on('message', msg => {
 
 	const command = args.shift().toLowerCase();
   var x = Math.floor(Math.random()*3);
+
+	if (message.author.bot) return;
+	currency.add(message.author.id, 1);
 
   if (!client.commands.has(command)) return msg.reply(insultArray[x]);
 
