@@ -1,7 +1,7 @@
 module.exports = {
     name: 'inventory',
     description: 'Check inventory',
-    execute(msg, args, guildSize) {
+    async execute(msg, args, guildSize) {
       const target = msg.mentions.users.first() || msg.author;
       const user = await Users.findOne({ where: { user_id: target.id } });
       const items = await user.getItems();
