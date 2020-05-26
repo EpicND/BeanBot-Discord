@@ -57,7 +57,7 @@ client.on('message', msg => {
   if (!client.commands.has(command)) return msg.reply(insultArray[x]);
 
 	try {
-		client.commands.get(command).execute(msg, args, client.guilds.size);
+		client.commands.get(command).execute(msg, args, client);
 	} catch (error) {
 		console.error(error);
 		msg.channel.send('there was an error trying to execute that command!');
