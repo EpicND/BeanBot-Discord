@@ -1,1 +1,1 @@
-worker: node fakeindex.js
+worker: node index.js
