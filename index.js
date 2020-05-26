@@ -21,7 +21,7 @@ for (const file of commandFiles) {
   "The only thing you have in common with a bean is your IQ. spell it properly nerd",
   "I feel bad for your english teacher if you can't even spell the commands correctly",
   "?? :clown:",
-  'Choose an actual command bimbo'
+  "Choose an actual command bimbo"
  ];
 
 client.on('ready', () => {
@@ -52,7 +52,7 @@ client.on('message', msg => {
     }
 
 	const command = args.shift().toLowerCase();
-  var x = Math.floor(Math.random()*3);
+  var x = Math.floor(Math.random()*4);
 
   if (!client.commands.has(command)) return msg.reply(insultArray[x]);
 
