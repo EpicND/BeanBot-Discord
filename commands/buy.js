@@ -3,7 +3,7 @@ const Discord = require('discord.js');
 module.exports = {
     name: 'buy',
     description: 'Buy something',
-    execute(msg, args, guildSize) {
+    async execute(msg, args, guildSize) {
 const item = await CurrencyShop.findOne({ where: { name: { [Op.like]: commandArgs } } });
 if (!item) return msg.channel.send(`That item doesn't exist.`);
 if (item.cost > currency.getBalance(msg.author.id)) {
