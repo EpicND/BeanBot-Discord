@@ -18,7 +18,8 @@ dispatcher.on('start', () => {
 });
 
 dispatcher.on('finish', () => {
-	console.log('audio.mp3 has finished playing!');
+    console.log('audio.mp3 has finished playing!');
+    voiceChannel.leave();
 });
 // connection.disconnect();
 
