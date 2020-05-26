@@ -7,7 +7,7 @@ module.exports = {
         const connection = await client.voice.channel;
         console.log(`connection: ${connection}`)
 
-            voiceChannel.leave();
+            msg.member.voice.channel.leave();
 
     }
 

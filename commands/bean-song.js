@@ -11,7 +11,7 @@ module.exports = {
     async execute(msg, args, client){
         if (msg.member.voice.channel) {
             const connection = await msg.member.voice.channel.join();
-            const dispatcher = connection.play(fs.createReadStream("./media/baked-bean-song.mp3"));
+            const dispatcher = connection.play(fs.createReadStream("./media/baked_bean_song.mp3"));
 
 dispatcher.on('start', () => {
 	console.log('audio.mp3 is now playing!');
