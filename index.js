@@ -66,7 +66,7 @@ client.on('message', msg => {
 });
 
 function defaultCase(msg){
-    var x = Math.floor(Math.random()*3)
+    var x = Math.floor(Math.random()*4)
       msg.reply(insultArray[x]);
 
 }
