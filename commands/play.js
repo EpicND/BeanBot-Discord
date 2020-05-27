@@ -4,14 +4,14 @@ const Discord = require('discord.js');
 const firebaseAdmin = require('firebase-admin')
 const serviceAcc = require('../firebase.json');
 
-var app = firebaseAdmin.initializeApp({
-    credential: firebaseAdmin.credential.cert(serviceAcc),
-    databaseURL: "https://bean-bot-278206.firebaseio.com"
-  });
+// var app = firebaseAdmin.initializeApp({
+//     credential: firebaseAdmin.credential.cert(serviceAcc),
+//     databaseURL: "https://bean-bot-278206.firebaseio.com"
+//   });
 
   var queue = new Array;
 
-const database = app.database();
+const database = firebaseAdmin.app().database();
 
 module.exports = {
     name: "play",
@@ -132,6 +132,12 @@ module.exports = {
                 // queue = [];
                 // do some stuff once
                 // return data.val().queue;
+                if(data.val().queue == undefined || data.val().queue == null){
+                    database.ref(`queues/${msg.guild.id}`).update({
+                        playing: true,
+                        queue: ['empty'],
+                    });
+                } 
                 for(z=0; z<data.val().queue.length; z++){
                     queue.push(data.val().queue[z])
                 }
