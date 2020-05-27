@@ -16,7 +16,7 @@ module.exports = {
     for(x=0; x<(args.length -1); x++){
         searchTerm += ` ${args[x+1]}`
     }
-    var link;
+    var link = '';
  
     var opts = {
     maxResults: 1,
@@ -24,16 +24,20 @@ module.exports = {
     type: 'video',
     };
  
-    search(searchTerm, opts, function(err, results) {
+    search(searchTerm, opts, async function(err, results) {
     if(err) return console.log(err);
-        link = results[0].link
+        console.log(results[0].link)
+        link = results[0].link;
+        console.log(link)
     // console.dir(results);
+    // console.log(link);
+    const stream = ytdl(link, {filter: "audioonly"});
+    const dispatcher = connection.play(stream);
+    msg.channel.send(`Now Playing: ${link}`)
+    dispatcher.on('end', () => voiceChannel.leave);
     });
 
-    console.log(link);
-    const stream = ytdl(link, {filter: "audioonly", quality: "247"});
-    const dispatcher = connection.play(stream);
-    dispatcher.on('end', () => voiceChannel.leave);
+
     } catch(err) {
     console.log(err)
     }
