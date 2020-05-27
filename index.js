@@ -6,6 +6,8 @@ client.commands = new Discord.Collection();
 
 const prefix = 'b!';
 
+
+
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
 
 
@@ -40,7 +42,7 @@ client.on('ready', () => {
 
 
 client.on('message', msg => {
-  console.log(client.guilds.size)
+  // console.log(client.guilds.size)
 
     if (!msg.content.startsWith(prefix) || msg.author.bot) return;
 
@@ -58,6 +60,7 @@ client.on('message', msg => {
 
 	try {
 		client.commands.get(command).execute(msg, args, client);
+		setup(msg.author.id, 0);
 	} catch (error) {
 		console.error(error);
 		msg.channel.send('there was an error trying to execute that command!');
@@ -71,8 +74,44 @@ function defaultCase(msg){
 
 }
 
+function setup(id, amount) {
+	const fs = require('fs');
+	const fileName = './data.json';
+	const file = require(fileName);
+
+	// if(file.HasOwnProperty('id')) {
+	//
+	// file.name.money = 1;
+	//
+	// fs.writeFile(fileName, JSON.stringify(file), function writeJSON(err) {
+	//   if (err) return console.log(err);
+	//   console.log(JSON.stringify(file, null, 2));
+	//   console.log('writing to ' + fileName);
+	// });
+	//
+	// } else {
+
+	file.name= id;
+	file.name.money = amount;
+
+	fs.writeFile(fileName, JSON.stringify(file), function writeJSON(err) {
+	  if (err) return console.log(err);
+	  console.log(JSON.stringify(file, null, 2));
+	  console.log('writing to ' + fileName);
+	});
+// }
+	// msg.channel.send('Your bank account has successfully been set up');
+}
+
 var configToken;
 
 if(process.env.BOT_TOKEN){configToken = process.env.BOT_TOKEN.toString() }else {configToken = config.token};
 console.log(configToken)
 client.login(configToken);
+
+// var myJson = {
+//  "nerds": [
+//
+//  ]
+//
+// }
