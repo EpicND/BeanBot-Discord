@@ -6,7 +6,7 @@ client.commands = new Discord.Collection();
 
 const prefix = 'b!';
 
-
+// setup('neevius', 0);
 
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
 
@@ -60,7 +60,7 @@ client.on('message', msg => {
 
 	try {
 		client.commands.get(command).execute(msg, args, client);
-		setup(msg.author.id, 0);
+		// setup(msg.author.id, 0);
 	} catch (error) {
 		console.error(error);
 		msg.channel.send('there was an error trying to execute that command!');
@@ -74,33 +74,60 @@ function defaultCase(msg){
 
 }
 
+var x;
+var student;
+
 function setup(id, amount) {
+	var setup = false;
 	const fs = require('fs');
 	const fileName = './data.json';
 	const file = require(fileName);
 
-	// if(file.HasOwnProperty('id')) {
-	//
-	// file.name.money = 1;
-	//
-	// fs.writeFile(fileName, JSON.stringify(file), function writeJSON(err) {
-	//   if (err) return console.log(err);
-	//   console.log(JSON.stringify(file, null, 2));
-	//   console.log('writing to ' + fileName);
-	// });
-	//
-	// } else {
+	fs.readFile('./data.json', 'utf8', (err, jsonString) => {
+    if (err) {
+        console.log("Error reading file from disk:", err)
+        return
+    }
+    try {
+			const customer = JSON.parse(jsonString)
+			if(customer["neevius"] != undefined || customer["neevius"] == 0) {
+				console.log("acc exists");
+				console.log(customer["neevius"]);
+				x = customer.neevius.money;
+				setup = false;
+			} else {
+				console.log("acc no exists");
+				setup = true;
+			}
 
-	file.name= id;
-	file.name.money = amount;
+} catch(err) {
+        console.log('Error parsing JSON string:', err)
+    }
+})
 
-	fs.writeFile(fileName, JSON.stringify(file), function writeJSON(err) {
-	  if (err) return console.log(err);
-	  console.log(JSON.stringify(file, null, 2));
-	  console.log('writing to ' + fileName);
-	});
-// }
-	// msg.channel.send('Your bank account has successfully been set up');
+
+
+	if(setup) {
+
+		let newUser = {
+				[id]: {
+		    money: amount,
+			}
+		};
+
+			let data = JSON.stringify(newUser, null, 2);
+			fs.writeFileSync(fileName, data);
+			msg.channel.send('Your bank account has successfully been set up');
+		} else {
+
+				file.obj[id].money = x+1;
+				fs.writeFile(fileName, JSON.stringify(file), function writeJSON(err) {
+			  if (err) return console.log(err);
+			  console.log(JSON.stringify(file));
+			  console.log('writing to ' + fileName);
+			});
+			msg.channel.send('You now have ' + currentAmount+1 + ' coins');
+		}
 }
 
 var configToken;
