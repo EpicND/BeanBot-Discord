@@ -1,16 +1,26 @@
 const search = require('youtube-search');
 const ytdl = require('ytdl-core');
 const Discord = require('discord.js');
+const firebaseAdmin = require('firebase-admin')
+const serviceAcc = require('../firebase.json');
+
+var app = firebaseAdmin.initializeApp({
+    credential: firebaseAdmin.credential.cert(serviceAcc),
+    databaseURL: "https://bean-bot-278206.firebaseio.com"
+  });
+
+  const database = app.database();
 
 module.exports = {
     name: "play",
     description: "plays music",
-    async execute(msg, args, client) {
+async execute(msg, args, client) {
+        console.log(msg.guild.id)
 
         const errorEmbed = new Discord.MessageEmbed()
         .setAuthor('❌ Error')
         .addField("Error", "You must be in a voice channel to play music")
-        .setColor("#c70000")
+        .setColor( "#c70000")
 
         const voiceChannel = msg.member.voice.channel;
         if (voiceChannel) {
@@ -23,7 +33,7 @@ module.exports = {
                         for (x = 0; x < (args.length - 1); x++) {
                             searchTerm += ` ${args[x+1]}`
                         }
-                        var link = '';
+                        var link;
 
                         var opts = {
                             maxResults: 1,
@@ -43,8 +53,11 @@ module.exports = {
                                 filter: "audioonly"
                             });
                             const dispatcher = connection.play(stream);
+                            database.ref(`queues/${msg.guild.id}`).update({
+                                playing: true,
+                            });
                             msg.channel.send(`Now Playing: ${link}`)
-                            dispatcher.on('end', () => connection.disconnect());
+                            dispatcher.on('finish', () => connection.disconnect());
                         });
 
 
