@@ -3,7 +3,7 @@
 // module.exports = {
 //     name: 'buy',
 //     description: 'Buy something',
-//     async execute(msg, args, guildSize) {
+//     async execute(msg, args, guildSize, UID) {
 // const item = await CurrencyShop.findOne({ where: { name: { [Op.like]: commandArgs } } });
 // if (!item) return msg.channel.send(`That item doesn't exist.`);
 // if (item.cost > currency.getBalance(msg.author.id)) {

@@ -5,6 +5,16 @@ var firebaseAdmin = require('firebase-admin');
 const client = new Discord.Client();
 client.commands = new Discord.Collection();
 
+const ytdl = require('ytdl-core');
+const serviceAcc = require('./firebase.json');
+
+var app = firebaseAdmin.initializeApp({
+    credential: firebaseAdmin.credential.cert(serviceAcc),
+    databaseURL: "https://bean-bot-278206.firebaseio.com"
+  });
+const database = app.database();
+var db = firebaseAdmin.database();
+
 const prefix = 'b!';
 
 // setup('neevius', 0);
@@ -42,6 +52,18 @@ client.on('ready', () => {
 });
 
 
+
+
+
+
+
+
+
+
+
+
+
+
 client.on('message', msg => {
   // console.log(client.guilds.size)
 
@@ -60,7 +82,8 @@ client.on('message', msg => {
   if (!client.commands.has(command)) return msg.reply(insultArray[x]);
 
 	try {
-		client.commands.get(command).execute(msg, args, client);
+		client.commands.get(command).execute(msg, args, client, msg.author.id);
+		giveBeans(msg.author.id);
 		// setup(msg.author.id, 0);
 	} catch (error) {
 		console.error(error);
@@ -74,72 +97,43 @@ function defaultCase(msg){
       msg.reply(insultArray[x]);
 
 }
+var money;
+function giveBeans(UID) {
+	var ref = db.ref("/Users/" + UID + "/Money");
+	ref.once("value", function(snapshot) {
+	money = snapshot.val();
+	if(snapshot.val() == null) {
 
-var x;
-var student;
+		var ref = db.ref("/Users");
+		ref.update({
+			[UID] : {
+				"Inventory" : {
+					"Nothing" : "am broke"
+				},
+				"Money" : 10
+			},
+		});
+		// msg.reply("Account created: You have " + snapshot.val() + " beans");
+	} else {
+		giveBeans2(UID);
+	}
 
-function setup(id, amount) {
-	var setup = false;
-	const fs = require('fs');
-	const fileName = './data.json';
-	const file = require(fileName);
-
-	fs.readFile('./data.json', 'utf8', (err, jsonString) => {
-    if (err) {
-        console.log("Error reading file from disk:", err)
-        return
-    }
-    try {
-			const customer = JSON.parse(jsonString)
-			if(customer["neevius"] != undefined || customer["neevius"] == 0) {
-				console.log("acc exists");
-				console.log(customer["neevius"]);
-				x = customer.neevius.money;
-				setup = false;
-			} else {
-				console.log("acc no exists");
-				setup = true;
-			}
-
-} catch(err) {
-        console.log('Error parsing JSON string:', err)
-    }
-})
-
-
-
-	if(setup) {
-
-		let newUser = {
-				[id]: {
-		    money: amount,
-			}
-		};
-
-			let data = JSON.stringify(newUser, null, 2);
-			fs.writeFileSync(fileName, data);
-			msg.channel.send('Your bank account has successfully been set up');
-		} else {
-
-				file.obj[id].money = x+1;
-				fs.writeFile(fileName, JSON.stringify(file), function writeJSON(err) {
-			  if (err) return console.log(err);
-			  console.log(JSON.stringify(file));
-			  console.log('writing to ' + fileName);
-			});
-			msg.channel.send('You now have ' + currentAmount+1 + ' coins');
-		}
+	}, function (errorObject) {
+	console.log("The read failed: " + errorObject.code);
+	});
 }
+
+function giveBeans2(UID) {
+	var ref2 = db.ref("/Users/");
+	var hopperRef = ref2.child(UID);
+	hopperRef.update({
+			"Money" : money + 2
+	});
+}
+
 
 var configToken;
 
 if(process.env.BOT_TOKEN){configToken = process.env.BOT_TOKEN.toString() }else {configToken = config.token};
 console.log(configToken)
 client.login(configToken);
-
-// var myJson = {
-//  "nerds": [
-//
-//  ]
-//
-// }
