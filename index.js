@@ -6,7 +6,7 @@ const client = new Discord.Client();
 client.commands = new Discord.Collection();
 
 const ytdl = require('ytdl-core');
-const serviceAcc = require('./firebase.json');
+const serviceAcc = require('./firebaseConfig.json');
 
 var app = firebaseAdmin.initializeApp({
     credential: firebaseAdmin.credential.cert(serviceAcc),

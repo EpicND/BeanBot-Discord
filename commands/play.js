@@ -2,7 +2,7 @@ const search = require('youtube-search');
 const ytdl = require('ytdl-core');
 const Discord = require('discord.js');
 const firebaseAdmin = require('firebase-admin')
-const serviceAcc = require('../firebase.json');
+const serviceAcc = require('../firebaseConfig.json');
 
 // var app = firebaseAdmin.initializeApp({
 //     credential: firebaseAdmin.credential.cert(serviceAcc),
