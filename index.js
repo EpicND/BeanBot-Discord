@@ -5,6 +5,7 @@ var firebaseAdmin = require('firebase-admin');
 const client = new Discord.Client();
 client.commands = new Discord.Collection();
 
+
 const ytdl = require('ytdl-core');
 const serviceAcc = require('./firebaseConfig.json');
 
