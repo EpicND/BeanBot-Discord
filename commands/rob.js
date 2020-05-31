@@ -38,7 +38,7 @@ module.exports = {
         });
       processingMessage.edit("Account created: You have " + snapshot.val() + " beans");
       } else {
-        msg.reply("You have " + snapshot.val() + " beans");
+        processingMessage.edit("You have " + snapshot.val() + " beans");
       }
 
       }, function (errorObject) {
