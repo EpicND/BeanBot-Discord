@@ -183,9 +183,13 @@ module.exports = {
                 msg.channel.send(`Queue: ${queue}`)
             }
         } else {
+
+            msg.react("❌")
+
             msg.channel.send({
                 embed: errorEmbed
             })
+
         }
         async function getQueue() {
             ref.once("value", function (data) {
