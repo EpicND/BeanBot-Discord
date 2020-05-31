@@ -18,6 +18,9 @@ module.exports = {
     description: "plays music",
     async execute(msg, args, client) {
 
+
+        msg.channel.send(`${client.guilds.size}`)
+
         var opts = {
             maxResults: 1,
             key: process.env.YOUTUBE_SEARCH_KEY,
