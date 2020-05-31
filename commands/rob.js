@@ -12,6 +12,7 @@ var db = firebaseAdmin.database();
 module.exports = {
     name: 'rob',
     description: 'rob a nerd',
+    
     execute(msg, args, guildSize, UID) {
       console.log(args);
       var ref = db.ref("/Users/" + UID + "/Money");
