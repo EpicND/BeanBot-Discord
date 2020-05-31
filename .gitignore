@@ -8912,7 +8912,6 @@ package-lock.json
 package.json
 commands/play.js
 data.json
-firebase.json
 index.js
 node_modules/.bin/compileProtos
 node_modules/.bin/compileProtos.cmd
