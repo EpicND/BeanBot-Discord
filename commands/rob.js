@@ -1,7 +1,7 @@
 const ytdl = require('ytdl-core');
 const Discord = require('discord.js');
 const firebaseAdmin = require('firebase-admin')
-const serviceAcc = require('../firebase.json');
+const serviceAcc = require('../firebaseConfig.json');
 
 var app = firebaseAdmin;
 const database = app.database();
