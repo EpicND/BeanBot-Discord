@@ -18,8 +18,9 @@ module.exports = {
 
     execute(msg, args, guildSize, UID) {
       console.log(args);
-      msg.channel.send('Processing...')
-      var ref = db.ref("/Users/" + UID + "/Money");
+      msg.channel.send('Processing...').then(processingMessage =>
+        {
+          var ref = db.ref("/Users/" + UID + "/Money");
       console.log("/Users/" + UID + "/Money");
       ref.once("value", function(snapshot) {
       
@@ -35,7 +36,7 @@ module.exports = {
             "Money" : 10
           },
         });
-        msg.reply("Account created: You have " + snapshot.val() + " beans");
+      processingMessage.edit("Account created: You have " + snapshot.val() + " beans");
       } else {
         msg.reply("You have " + snapshot.val() + " beans");
       }
@@ -43,5 +44,8 @@ module.exports = {
       }, function (errorObject) {
       console.log("The read failed: " + errorObject.code);
       });
+        }
+      )
+      
     }
 }
