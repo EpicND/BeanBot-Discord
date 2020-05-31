@@ -24,13 +24,16 @@ module.exports = {
 
         var ref = db.ref("/Users");
         ref.update({
-          [UID] : {
-            "Inventory" : {
-              "Nothing" : "am broke"
-            },
-            "Money" : 10
-          },
-        });
+    			[UID] : {
+    				"Inventory" : {
+    					"Nothing" : "am broke"
+    				},
+    				"Money" : 10,
+            "Notifications" : {
+    					"Default" : "Default"
+    				},
+    			},
+    		});
       processingMessage.edit("Account created: You have " + snapshot.val() + " beans");
       } else {
         processingMessage.edit("You have " + snapshot.val() + " beans");
