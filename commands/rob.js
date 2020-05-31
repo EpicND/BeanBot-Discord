@@ -35,7 +35,7 @@ module.exports = {
             },
             "Money" : 10
           },
-        });
+      });
       processingMessage.edit("Account created: You have " + snapshot.val() + " beans");
       } else {
         processingMessage.edit("You have " + snapshot.val() + " beans");
