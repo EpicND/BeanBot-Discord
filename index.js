@@ -77,6 +77,7 @@ client.on('message', msg => {
     }
 
 	const command = args.shift().toLowerCase();
+  // console.log(command);
   var x = Math.floor(Math.random()*4);
 
   if (!client.commands.has(command)) return msg.reply(insultArray[x]);
