@@ -20,13 +20,16 @@ module.exports = {
       if(snapshot.val() == null) {
         var ref = db.ref("/Users");
         ref.update({
-          [UID] : {
-            "Inventory" : {
-              "Nothing" : "am broke"
-            },
-            "Money" : 10
-          },
-        });
+    			[UID] : {
+    				"Inventory" : {
+    					"Nothing" : "am broke"
+    				},
+    				"Money" : 10,
+            "Notifications" : {
+    					"Default" : "Default"
+    				},
+    			},
+    		});
         msg.reply("Account created: You have " + snapshot.val() + " beans");
       } else {
         msg.reply("You have " + snapshot.val() + " beans");

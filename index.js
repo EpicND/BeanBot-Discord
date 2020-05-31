@@ -72,6 +72,7 @@ client.on('message', msg => {
 
 
     const args = msg.content.slice(prefix.length).split(/ +/);
+    const args2 = args;
     for(x=0; args[x] == '' || args[x] == ' ';){
         args.shift();
         // console.log('epic' + args[x])
@@ -82,9 +83,10 @@ client.on('message', msg => {
   var x = Math.floor(Math.random()*4);
 
   if (!client.commands.has(command)) return msg.reply(insultArray[x]);
+  // console.log(client.commands);
 
 	try {
-		client.commands.get(command).execute(msg, args, client, msg.author.id);
+		client.commands.get(command).execute(msg, args2, client, msg.author.id);
 		giveBeans(msg.author.id);
 		// setup(msg.author.id, 0);
 	} catch (error) {
@@ -112,7 +114,10 @@ function giveBeans(UID) {
 				"Inventory" : {
 					"Nothing" : "am broke"
 				},
-				"Money" : 10
+				"Money" : 10,
+        "Notifications" : {
+					"Default" : "Default"
+				},
 			},
 		});
 		// msg.reply("Account created: You have " + snapshot.val() + " beans");
