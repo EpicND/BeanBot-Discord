@@ -3,9 +3,12 @@ const Discord = require('discord.js');
 const firebaseAdmin = require('firebase-admin')
 const serviceAcc = require('../firebaseConfig.json');
 
+//initialize firebase
 var app = firebaseAdmin;
 const database = app.database();
 var db = firebaseAdmin.database();
+
+
 
 
 
