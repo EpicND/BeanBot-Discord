@@ -1,20 +1,46 @@
+const ytdl = require('ytdl-core');
+const Discord = require('discord.js');
+const firebaseAdmin = require('firebase-admin')
+const serviceAcc = require('../firebaseConfig.json');
 
-// module.exports = {
-//     name: 'transfer',
-//     description: 'Buy something',
-//     execute(msg, args, guildSize) {
+//initialize firebase
+var app = firebaseAdmin;
+const database = app.database();
+var db = firebaseAdmin.database();
 
-// const currentAmount = currency.getBalance(msg.author.id);
-// const transferAmount = commandArgs.split(/ +/g).find(arg => !/<@!?\d+>/g.test(arg));
-// const transferTarget = msg.mentions.users.first();
+module.exports = {
+  name: 'rob',
+  description: 'rob a nerd',
+    execute(msg, args, guildSize, UID) {
+      msg.channel.send("You are attempting to rob " + args[0] + "...");
+      msg.channel.send('Trying...').then(processingMessage =>
+        {
+      var ref = db.ref("/Users/" + UID + "/Money");
+      console.log("/Users/" + UID + "/Money");
+      ref.once("value", function(snapshot) {
 
-// if (!transferAmount || isNaN(transferAmount)) return msg.channel.send(`Sorry ${msg.author}, that's an invalid amount.`);
-// if (transferAmount > currentAmount) return msg.channel.send(`Sorry ${msg.author}, you only have ${currentAmount}.`);
-// if (transferAmount <= 0) return msg.channel.send(`Please enter an amount greater than zero, ${msg.author}.`);
+      console.log("The value is " + snapshot.val());
+      if(snapshot.val() == null) {
 
-// currency.add(msg.author.id, -transferAmount);
-// currency.add(transferTarget.id, transferAmount);
+        var ref = db.ref("/Users");
+        ref.update({
+          [UID] : {
+            "Inventory" : {
+              "Nothing" : "am broke"
+            },
+            "Money" : 10
+          },
+        });
+      processingMessage.edit("Account created: You have " + snapshot.val() + " beans");
+      } else {
+        processingMessage.edit("You have " + snapshot.val() + " beans");
+      }
 
-// return msg.channel.send(`Successfully transferred ${transferAmount}💰 to ${transferTarget.tag}. Your current balance is ${currency.getBalance(msg.author.id)}💰`);
-// }
-// }
+      }, function (errorObject) {
+      console.log("The read failed: " + errorObject.code);
+      });
+        }
+      )
+
+    }
+}
